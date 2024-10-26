@@ -50,7 +50,7 @@
 
       .card {
         margin: 8px;
-        width: 200px;
+        width: 180px;
         border: 1px solid #ccc;
         border-radius: 8px;
         padding: 16px;
@@ -210,12 +210,12 @@
     <script>
       window.addEventListener("click", function (e) {
         confetti({
-          origin: {
-            x: e.clientX / innerWidth,
-            y: e.clientY / innerHeight,
-          },
+          origin: { x: e.clientX / innerWidth, y: e.clientY / innerHeight },
         });
       });
+      setInterval(function () {
+        confetti({ origin: { x: Math.random(), y: Math.random() } });
+      }, 300);
       waterfall(cardgrid);
       window.addEventListener(
         "resize",
