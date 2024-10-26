@@ -67,6 +67,7 @@
         margin-bottom: 0;
       }
     </style>
+    {{confetti}}
     <script>
       /**
        * @param {Function} fn
@@ -207,6 +208,14 @@
       </div>
     </div>
     <script>
+      window.addEventListener("click", function (e) {
+        confetti({
+          origin: {
+            x: e.clientX / innerWidth,
+            y: e.clientY / innerHeight,
+          },
+        });
+      });
       waterfall(cardgrid);
       window.addEventListener(
         "resize",

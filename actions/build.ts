@@ -13,6 +13,9 @@ const html = csv.map((row) => createCard({ name: row[0], comment: row[1] }))
 let raw = await Deno.readTextFile("src/index.html");
 raw = raw.replace("{{cards}}", html);
 
+const js = await Deno.readTextFile("src/confetti.js");
+raw = raw.replace("{{confetti}}", `<script>${js}</script>`);
+
 const img = await Deno.readFile("src/img.jpg");
 // img to base64 dataurl
 const imgBase64 = btoa(
