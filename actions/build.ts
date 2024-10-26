@@ -7,6 +7,8 @@ await Deno.mkdir("dist").catch(async () => {
   await Deno.mkdir("dist");
 });
 
+Deno.copyFile("src/img.svg", "dist/img.svg");
+
 const csv = parse(await Deno.readTextFile("src/data.csv"));
 const html = csv.map((row) => createCard({ name: row[0], comment: row[1] }))
   .join("");
@@ -15,8 +17,6 @@ raw = raw.replace("{{cards}}", html);
 
 const js = await Deno.readTextFile("src/confetti.js");
 raw = raw.replace("{{confetti}}", `<script>${js}</script>`);
-
-Deno.copyFile("src/img.jpg", "dist/img.jpg");
 
 Deno.writeTextFile(
   "dist/index.html",

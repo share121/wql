@@ -45,21 +45,23 @@
 
       .img {
         display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
         max-width: 1500px;
-        margin: 0 auto 16px;
       }
 
       #cardgrid {
-        max-width: 1500px;
         margin: 0 auto 16px;
+        max-width: 1500px;
       }
 
       .card {
         margin: 8px;
-        width: 200px;
+        padding: 16px;
         border: 1px solid #ccc;
         border-radius: 8px;
-        padding: 16px;
+        width: 200px;
         box-shadow: 0 4px 16px #ccc;
       }
 
@@ -75,8 +77,8 @@
 
       @media (max-width: 768px) {
         .card {
-          width: 180px;
           margin: 4px;
+          width: 180px;
         }
       }
     </style>
@@ -211,14 +213,12 @@
     </script>
   </head>
   <body>
-    <div>
-      <img src="img.jpg" class="img" alt="" style="width: 100%" />
-      <h1 style="margin: 16px; text-align: center; font-size: 48px">
-        同学们的话
-      </h1>
-      <div id="cardgrid">
-        {{cards}}
-      </div>
+    <img src="img.svg" class="img" alt="" />
+    <h1 style="margin: 16px; text-align: center; font-size: 48px">
+      同学们的话
+    </h1>
+    <div id="cardgrid">
+      {{cards}}
     </div>
     <script>
       window.addEventListener("click", function (e) {
