@@ -50,7 +50,7 @@
 
       .card {
         margin: 8px;
-        width: 180px;
+        width: 200px;
         border: 1px solid #ccc;
         border-radius: 8px;
         padding: 16px;
@@ -65,6 +65,13 @@
       .card > .comment {
         margin-top: 8px;
         margin-bottom: 0;
+      }
+
+      @media (max-width: 768px) {
+        .card {
+          width: 180px;
+          margin: 4px;
+        }
       }
     </style>
     {{confetti}}
