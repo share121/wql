@@ -46,7 +46,7 @@ Deno.writeTextFile(
 function createCard({ name, comment }: { name: string; comment: string }) {
   return /* html */ `
 <div class="card">
-  <h3 class="name">${escape(name)}</h3>
+  <h2 class="name">${escape(name)}</h2>
   <p class="comment">${escape(comment)}</p>
 </div>
 `;
