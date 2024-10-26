@@ -16,15 +16,8 @@ raw = raw.replace("{{cards}}", html);
 const js = await Deno.readTextFile("src/confetti.js");
 raw = raw.replace("{{confetti}}", `<script>${js}</script>`);
 
-const img = await Deno.readFile("src/img.jpg");
-// img to base64 dataurl
-const imgBase64 = btoa(
-  new Uint8Array(img).reduce(
-    (data, byte) => data + String.fromCharCode(byte),
-    "",
-  ),
-);
-raw = raw.replace("{{img}}", `data:image/jpg;base64,${imgBase64}`);
+Deno.copyFile("src/img.jpg", "dist/img.jpg");
+
 Deno.writeTextFile(
   "dist/index.html",
   minify(raw, {
